@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Configuration;
 
 namespace HW_WPF_20200227_StylesAndTemplates
 {
@@ -20,9 +21,13 @@ namespace HW_WPF_20200227_StylesAndTemplates
     /// </summary>
     public partial class MainWindow : Window
     {
+        //static string imgesPath = ConfigurationManager.AppSettings["imgesPath"];
+        //static string resourcesPath = ConfigurationManager.AppSettings["resourcesPath"];
+
         public MainWindow()
         {
             InitializeComponent();
+
         }
     }
 }

@@ -5,8 +5,138 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HW_WPF_20200227_StylesAndTemplates"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" Height="600" Width="700">
+
+    <Window.Resources>
+        <ResourceDictionary Source="C:\Users\Vladimir\source\repos\HW_WPF_20200227_StylesAndTemplates\HW_WPF_20200227_StylesAndTemplates\Resources\Dictionary.xaml"/>
+    </Window.Resources>
+
+    <TabControl Background="#EDEDED">
+
+        <TabItem Header="Movavi Screen Capture Studio">
+            <StackPanel Background="#DEFFE9">
+
+                <Label Content="Movavi Screen Capture Studio"
+                       Style="{StaticResource H1}"/>
+
+                <Label Content="The perfect way to record your screen"
+                       FontSize="25" FontWeight="DemiBold"
+                       Foreground="#FF605A5A"
+                       Margin="5" Padding="20 0"/>
+                
+                <ListBox BorderBrush="White" Background="#DEFFE9"
+                         Margin="20 0" FontSize="20">
+                <Label>Capture video from your computer screen</Label>
+                <Label>Grab sound from multiple sources</Label>
+                <Label>Tweak wideos from built-in editor</Label>
+                <Label>Save videos in any popular format</Label>
+                </ListBox>
+
+                <StackPanel Orientation="Horizontal" Margin="0 20">
+
+                    <StackPanel Orientation="Vertical">
+                        <Button Content="Windows Download for Free"
+                                Template="{StaticResource btnTemplate}"/>
+                        <Button Content="More about the Windows version >>"
+                                Style="{StaticResource btnLink}"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical">
+                        <Button Content="Apple Download for Free"
+                                Template="{StaticResource btnTemplate}"/>
+                        <Button Content="More about the Mac version >>"
+                                Style="{StaticResource btnLink}"/>
+                    </StackPanel>
+
+                </StackPanel>
+
+                <TextBlock TextWrapping="Wrap" Foreground="Gray">
+                        <Run>Disclaimer: Please be aware that </Run>
+                        <Run>Movavi Screen Capture Studio does</Run>
+                        <Run>not allow capture of copy-protected</Run>
+                        <Run>video and audio streams</Run>
+                </TextBlock>
+
+            </StackPanel>
+        </TabItem>
+
+        <TabItem Header="See Other Useful How-to Guides">
+
+            <Grid Margin="25" >
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="100"></RowDefinition>
+                    <RowDefinition Height="100"></RowDefinition>
+                    <RowDefinition Height="100" ></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Label Grid.ColumnSpan="3" Content="See Other Useful How-to Guides"
+                       Style="{StaticResource H1}"/>
+
+                <Button Grid.Row="1" Grid.Column="0"
+                        Template="{StaticResource btnInfoBlock}"
+                        Content="How to capture videos on your PC or Mac" 
+                           />
+                <Button Grid.Row="2" Grid.Column="0"
+                        Template="{StaticResource btnInfoBlock}"
+                           Content="How to record a live streame on a PC or Mac"/>
+                <Button Grid.Row="3" Grid.Column="0"
+                        Template="{StaticResource btnInfoBlock}"
+                           Content="How to capture videos in HD"/>
+                <Button Grid.Row="1" Grid.Column="1"
+                        Template="{StaticResource btnInfoBlock}"
+                           Content="How to redord Skype video calls" Grid.ColumnSpan="2"/>
+                <Button Grid.Row="2" Grid.Column="1"
+                        Template="{StaticResource btnInfoBlock}"
+                           Content="How to create video tutorials" Grid.ColumnSpan="2"/>
+                <Button Grid.Row="3" Grid.Column="1"
+                        Template="{StaticResource btnInfoBlock}"
+                           Content="And much more" Grid.ColumnSpan="2"/>
+            </Grid>
+        </TabItem>
+
+        <TabItem Header="Image">
+
+            <Grid VerticalAlignment="Center">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" 
+                            Orientation="Horizontal" 
+                            VerticalAlignment="Center"
+                            Width="500" Margin="100 0">
+                    <RadioButton></RadioButton>
+                    <RadioButton></RadioButton>
+                    <RadioButton></RadioButton>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                    <Button Content="Learn more >"
+                            Style="{StaticResource btnOpacity}"/>
+                    <Button Content="WIn Download for Free"
+                            Style="{StaticResource btnBlue}"/>
+                </StackPanel>
+
+            </Grid>
+
+        </TabItem>
+
+        <TabItem Header="Check">
+
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            </StackPanel>
+
+        </TabItem>
+
+    </TabControl>
 </Window>
