@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HW_WPF_20200227_StylesAndTemplates"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="700">
+        Title="MainWindow" Height="650" Width="700">
 
     <Window.Resources>
         <ResourceDictionary Source="C:\Users\Vladimir\source\repos\HW_WPF_20200227_StylesAndTemplates\HW_WPF_20200227_StylesAndTemplates\Resources\Dictionary.xaml"/>
@@ -151,10 +151,12 @@
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center"
                         Background="White">
                 <Image x:Name="imgCheck" Height="300"/>
-                <CheckBox Template="{StaticResource chbTemplate}"></CheckBox>
+                <CheckBox x:Name="chb1" HorizontalAlignment="Center"/>
                 <Label Grid.ColumnSpan="3" Content="Become an affiliate now. It's aesy!"
                        Style="{StaticResource H1}"/>
-                <Button Template="{StaticResource btnTemplate}">Join!</Button>
+                <Button  Template="{StaticResource btnTemplate}"
+                        Style="{StaticResource btnBindingCheckBox}"
+                         FontSize="30">Join!</Button>
             </StackPanel>
 
         </TabItem>

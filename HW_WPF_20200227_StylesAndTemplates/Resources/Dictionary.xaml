@@ -48,6 +48,11 @@
             <Trigger Property="IsPressed" Value="true">
                 <Setter TargetName="btnBorder" Property="BorderThickness" Value="3"/>
             </Trigger>
+
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter TargetName="btnBorder" Property="Background" Value="Gray"/>
+            </Trigger>
+
         </ControlTemplate.Triggers>
 
     </ControlTemplate>
@@ -88,7 +93,6 @@
             <ContentControl
                 x:Name="btnContentComtrol"
                 Foreground="#FF221F1F" 
-                
                 VerticalAlignment="Center" 
                 HorizontalAlignment="Center">
 
@@ -141,30 +145,62 @@
 
     </ControlTemplate>
 
-    <ControlTemplate x:Key="chbTemplate" TargetType="CheckBox">
-        <Border Width="50" Height="50" BorderThickness="2" BorderBrush="Gray" Background="LightGray">
 
-            <ContentControl
-                x:Name="chbContentComtrol"
-                Foreground="#FF221F1F" 
-                
-                VerticalAlignment="Center" 
-                HorizontalAlignment="Center">
-
-                <TextBlock Text="{TemplateBinding Content}"
-                           TextWrapping="Wrap"/>
-            </ContentControl>
-
-        </Border>
-
-        <ControlTemplate.Triggers>
-            <Trigger Property="IsChecked" Value="true">
-                <Setter TargetName="chbContentComtrol" Property="" Value="Blue"/>
-            </Trigger>
-        </ControlTemplate.Triggers>
+    <Style x:Key="btnBindingCheckBox" TargetType="Button">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=chb1, Path=IsChecked}" Value="false">
+                <Setter Property="IsEnabled" Value="False"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
 
 
+    <Style x:Key="chbMyStyle" TargetType="CheckBox">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="CheckBox">
+                    <BulletDecorator Background="Transparent">
+                        <BulletDecorator.Bullet>
+                            <Border Width="50" Height="50" BorderThickness="2" BorderBrush="Gray" Background="LightGray">
+                                <Grid>
+                                    <Path Visibility="Collapsed"
+                      Width="7"
+                      Height="7"
+                      x:Name="CheckMark"
+                      SnapsToDevicePixels="False"
+                      StrokeThickness="2"
+                      Data="M 0 0 L 7 7 M 0 7 L 7 0">
+                                        <Path.Stroke>
+                                            <SolidColorBrush Color="{DynamicResource GlyphColor}" />
+                                        </Path.Stroke>
+                                    </Path>
+                                    <Path Visibility="Collapsed"
+                      Width="7"
+                      Height="7"
+                      x:Name="InderminateMark"
+                      SnapsToDevicePixels="False"
+                      StrokeThickness="2"
+                      Data="M 0 7 L 7 0">
+                                        <Path.Stroke>
+                                            <SolidColorBrush Color="{DynamicResource GlyphColor}" />
+                                        </Path.Stroke>
+                                    </Path>
+                                </Grid>
+                            </Border>
+                        </BulletDecorator.Bullet>
+                    </BulletDecorator>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
 
-    </ControlTemplate>
+        <Setter Property="IsChecked" Value="True"/>
+
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=chb1, Path=IsChecked}" Value="false">
+                <Setter Property="IsEnabled" Value="False"/>
+            </DataTrigger>
+        </Style.Triggers>
+
+    </Style>
 
 </ResourceDictionary>
