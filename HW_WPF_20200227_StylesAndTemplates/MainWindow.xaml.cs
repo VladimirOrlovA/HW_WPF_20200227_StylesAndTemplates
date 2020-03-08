@@ -21,13 +21,21 @@ namespace HW_WPF_20200227_StylesAndTemplates
     /// </summary>
     public partial class MainWindow : Window
     {
-        //static string imgesPath = ConfigurationManager.AppSettings["imgesPath"];
-        //static string resourcesPath = ConfigurationManager.AppSettings["resourcesPath"];
-
         public MainWindow()
         {
             InitializeComponent();
+            imgCheck.Source = new BitmapImage(new Uri(ConfigurationManager.AppSettings["imgesPath"] + "\\Capture.JPG"));
+        }
 
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            var rbPressed = (RadioButton)sender;
+            string imgNumber = (string)rbPressed.Content;
+            if(imgNumber == null) imgNumber = "1";
+
+            string imgesPath = ConfigurationManager.AppSettings["imgesPath"];
+            imgesPath += $"\\slide_{imgNumber}.jpg";
+            imgbrush.ImageSource = new BitmapImage(new Uri(imgesPath));
         }
     }
 }

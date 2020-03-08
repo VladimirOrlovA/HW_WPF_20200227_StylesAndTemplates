@@ -9,20 +9,25 @@
         <Setter Property="Control.Margin" Value="0 10 0 30"/>
     </Style>
 
-    <Style x:Key="btnOpacity" TargetType="Button">
+    <Style x:Key="ButtonParentStyle" TargetType="Button">
+        <Setter Property="Height" Value="70" />
+    </Style>
+
+    <Style x:Key="btnOpacity" TargetType="Button" BasedOn="{StaticResource ButtonParentStyle}">
         <Setter Property="Background" Value="Gray"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="Margin" Value="10"/>
         <Setter Property="Padding" Value="10"/>
     </Style>
 
-    <Style x:Key="btnBlue" TargetType="Button">
+    <Style x:Key="btnBlue" TargetType="Button" BasedOn="{StaticResource ButtonParentStyle}">
         <Setter Property="Background" Value="#3581D5"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="Margin" Value="10"/>
         <Setter Property="Padding" Value="10"/>
     </Style>
-    
+
+
     <ControlTemplate x:Key="btnTemplate" TargetType="Button">
 
         <Border x:Name="btnBorder" BorderBrush="#009CB8" BorderThickness="1" CornerRadius="3" 
@@ -91,8 +96,8 @@
                            TextWrapping="Wrap"/>
             </ContentControl>
 
-            
-            
+
+
             <Border.BorderBrush>
                 <VisualBrush>
                     <VisualBrush.Visual>
@@ -103,19 +108,63 @@
                     </VisualBrush.Visual>
                 </VisualBrush>
             </Border.BorderBrush>
-            
+
         </Border>
 
         <ControlTemplate.Triggers>
             <Trigger Property="IsMouseOver" Value="true">
                 <Setter TargetName="btnBorder" Property="Background" Value="#BEDDE2"/>
                 <Setter TargetName="btnBorder" Property="BorderBrush" Value="#BEDDE2"/>
-                
+
             </Trigger>
 
         </ControlTemplate.Triggers>
 
     </ControlTemplate>
 
+
+
+    <ControlTemplate x:Key="rbtnCircle" TargetType="RadioButton">
+
+        <Border x:Name="rbtnBorder" CornerRadius="40" Background="White" Height="20" Width="20" Margin="10" />
+
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter TargetName="rbtnBorder" Property="Height" Value="30"/>
+                <Setter TargetName="rbtnBorder" Property="Width" Value="30"/>
+            </Trigger>
+
+            <Trigger Property="IsChecked" Value="true">
+                <Setter TargetName="rbtnBorder" Property="Control.Background" Value="Blue"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="chbTemplate" TargetType="CheckBox">
+        <Border Width="50" Height="50" BorderThickness="2" BorderBrush="Gray" Background="LightGray">
+
+            <ContentControl
+                x:Name="chbContentComtrol"
+                Foreground="#FF221F1F" 
+                
+                VerticalAlignment="Center" 
+                HorizontalAlignment="Center">
+
+                <TextBlock Text="{TemplateBinding Content}"
+                           TextWrapping="Wrap"/>
+            </ContentControl>
+
+        </Border>
+
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsChecked" Value="true">
+                <Setter TargetName="chbContentComtrol" Property="" Value="Blue"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+
+
+
+    </ControlTemplate>
 
 </ResourceDictionary>

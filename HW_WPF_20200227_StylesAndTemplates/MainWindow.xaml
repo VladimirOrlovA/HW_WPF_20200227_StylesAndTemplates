@@ -103,27 +103,43 @@
 
         <TabItem Header="Image">
 
-            <Grid VerticalAlignment="Center">
+            <Grid VerticalAlignment="Center" Height="200">
+                <Grid.Background>
+                    <ImageBrush x:Name="imgbrush"/>
+                </Grid.Background>
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Grid.Column="0" 
                             Orientation="Horizontal" 
                             VerticalAlignment="Center"
-                            Width="500" Margin="100 0">
-                    <RadioButton></RadioButton>
-                    <RadioButton></RadioButton>
-                    <RadioButton></RadioButton>
+                            Margin="10 0">
+                    <RadioButton Template="{StaticResource rbtnCircle}"
+                                 GroupName="bgImages"
+                                 Checked="RadioButton_Checked"
+                                 IsChecked="True"
+                                 Content="1"/>
+                    
+                    <RadioButton Template="{StaticResource rbtnCircle}"
+                                 GroupName="bgImages"
+                                 Checked="RadioButton_Checked"
+                                 Content="2"/>
+                    
+                    <RadioButton Template="{StaticResource rbtnCircle}"
+                                 GroupName="bgImages"
+                                 Checked="RadioButton_Checked"
+                                 Content="3"/>
                 </StackPanel>
 
                 <StackPanel Grid.Column="1" Orientation="Horizontal">
                     <Button Content="Learn more >"
                             Style="{StaticResource btnOpacity}"/>
                     <Button Content="WIn Download for Free"
-                            Style="{StaticResource btnBlue}"/>
+                            Style="{StaticResource btnBlue}"
+                            Background="Blue"/>
                 </StackPanel>
 
             </Grid>
@@ -132,8 +148,13 @@
 
         <TabItem Header="Check">
 
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center"
+                        Background="White">
+                <Image x:Name="imgCheck" Height="300"/>
+                <CheckBox Template="{StaticResource chbTemplate}"></CheckBox>
+                <Label Grid.ColumnSpan="3" Content="Become an affiliate now. It's aesy!"
+                       Style="{StaticResource H1}"/>
+                <Button Template="{StaticResource btnTemplate}">Join!</Button>
             </StackPanel>
 
         </TabItem>
